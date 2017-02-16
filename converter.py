@@ -1,5 +1,5 @@
 import sys
-sys.path.append(r"c:\users\mjransom\appdata\local\programs\python\python35-32\lib\site-packages")
+sys.path.append(r"c:\users\YOURUSERNAME\appdata\local\programs\python\python35-32\lib\site-packages")
 import pyperclip
 
 def get_mac():
