@@ -31,17 +31,23 @@ def convert(mac_address):
         if (mac_tuple[i][0].count(':') == 5 or mac_tuple[i][0].count('.') == 5 or mac_tuple[i][0].count('-') == 5):
             separator = mac_tuple[i][0][2]
             temp = mac_tuple[i][0].replace(separator, '')
+            separator = '.'
             temp = temp[0:4] + separator + temp[4:8] + separator + temp[8:] + '\r\n'
             result.append(temp)
             i += 1
         # When the MAC Address is in the xxxx.xxxx.xxxx format, result are xx.xx.xx.xx.xx.xx
-        else:
+        elif (mac_tuple[i][0].count(':') == 3 or mac_tuple[i][0].count('.') == 3 or mac_tuple[i][0].count('-') == 3):
             separator = mac_tuple[i][0][4]
             temp = mac_tuple[i][0].replace(separator, '')
+            separator = ':'
             temp = temp[0:2] + separator + temp[2:4] + separator + temp[4:6] + separator + temp[6:8] \
                    + separator + temp[8:10] + separator + temp[10:] + '\r\n'
             result.append(temp)
             i += 1
+        else:
+            temp = mac_tuple[i][3]
+            temp = temp[0:4] + separator + temp[4:8] + separator + temp[8:] + '\r\n'
+            result.append(temp)
     return ''.join(result)
 
 
